@@ -2,16 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createGlobalStyle } from "styled-components";
+import {
+  createGlobalStyle,
+  DefaultTheme,
+  ThemeProvider,
+} from "styled-components";
 import { Normalize } from "styled-normalize";
+import { BrowserRouter } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
     body {
-       
         width: 100vw;
         height: 100vh;
         padding: 0;
         margin: 0;
+
+        font-family: 'Montserrat', sans-serif;
         
         background: linear-gradient(143deg, #CFCFCF, #868686);
     }
@@ -55,11 +61,27 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
+const theme: DefaultTheme = {
+  text: {
+    title: {
+      color: "#ffffff",
+    },
+    desc: {
+      color: "#ADAFB3",
+      fz: "14px",
+    },
+  },
+};
+
 ReactDOM.render(
   <React.StrictMode>
-    <Normalize />
-    <GlobalStyle />
-    <App />
+    <BrowserRouter>
+      <Normalize />
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
