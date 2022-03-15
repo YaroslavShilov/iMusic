@@ -6,5 +6,6 @@ export const Header = () => {
 };
 
 const HeaderStyle = styled.header`
+  height: 50px;
   background-color: transparent;
 `;

@@ -29,7 +29,7 @@ const Content = styled.div`
   display: grid;
   grid-template-rows: 1fr 106px;
   grid-template-columns: 265px 1fr;
-  grid-template-areas: "aside main" "aside footer";
+  grid-template-areas: "aside main" "footer footer";
   width: 100%;
   max-width: 1200px;
   height: 680px;

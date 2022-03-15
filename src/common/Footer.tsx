@@ -7,5 +7,6 @@ export const Footer = () => {
 
 const FooterStyle = styled.footer`
   grid-area: footer;
+  height: 106px;
   background-color: #101320;
 `;
