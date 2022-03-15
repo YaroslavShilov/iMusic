@@ -2,32 +2,36 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { PlayIcon } from "@heroicons/react/solid";
+import { PlayBtn } from "./PlayBtn";
 
-type PlaylistStyle = {
+type Props = {
   id: string | number;
   name: string;
   desc: string;
-  src: string;
+  img?: string;
 };
 
-export const Playlist: React.FC<PlaylistStyle> = ({ id, name, desc, src }) => {
+export const PlaylistBlock: React.FC<Props> = ({
+  id,
+  name,
+  desc,
+  img = "https://source.unsplash.com/user/c_v_r/600x600",
+}) => {
   return (
-    <PlaylistStyle to={`playlist/${id}`}>
+    <Playlist to={`playlist/${id}`}>
       <div className="img">
-        <img src={src} alt={name} />
-        <Play>
-          <PlayIcon />
-        </Play>
+        <img src={img} alt={name} />
+        <PlayBtn className="play" />
       </div>
       <div className="cont">
         <h3 className="name">{name}</h3>
         <p className="desc">{desc}</p>
       </div>
-    </PlaylistStyle>
+    </Playlist>
   );
 };
 
-const PlaylistStyle = styled(Link)`
+const Playlist = styled(Link)`
   display: block;
   color: ${(props) => props.theme.text.title.color};
   border-radius: 8px;
@@ -55,6 +59,7 @@ const PlaylistStyle = styled(Link)`
   }
 
   .cont {
+    height: 83px;
     padding: 15px;
     background-color: #101321;
     transition: all 0.5s ease-in-out;
@@ -70,39 +75,16 @@ const PlaylistStyle = styled(Link)`
     font-size: ${({ theme }) => theme.text.desc.fz};
     color: ${({ theme }) => theme.text.desc.color};
   }
-`;
 
-const Play = styled.div`
-  position: absolute;
-  right: 7px;
-  bottom: 0;
-
-  width: 48px;
-  height: 48px;
-  color: #5c6fb1;
-
-  &:after {
-    content: "";
+  .play {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 0;
-
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-    margin-left: -10px;
-
-    background-color: #1e2233;
+    right: 7px;
+    bottom: -5px;
+    opacity: 0;
   }
 
-  svg {
-    position: relative;
-    z-index: 1;
-
-    transition: all 0.5s ease-in-out;
-    &:hover {
-      color: #1fdf64;
-    }
+  &:hover .play {
+    bottom: 5px;
+    opacity: 1;
   }
 `;

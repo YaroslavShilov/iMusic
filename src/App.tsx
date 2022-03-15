@@ -22,16 +22,17 @@ const AppStyle = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 20px;
 `;
 
 const Content = styled.div`
   position: relative;
   display: grid;
   grid-template-rows: 1fr 106px;
-  grid-template-columns: 265px 1fr;
+  grid-template-columns: 255px 1fr;
   grid-template-areas: "aside main" "footer footer";
   width: 100%;
-  max-width: 1200px;
+  max-width: 1300px;
   height: 680px;
   background-color: #181b21;
   border-radius: 3px;

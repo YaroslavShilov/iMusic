@@ -25,7 +25,7 @@ const MainStyle = styled.main`
 `;
 
 const Content = styled(SimpleBar)`
-  height: 530px;
+  max-height: 530px;
   padding: 18px 30px 18px;
 
   .simplebar-scrollbar:before {
