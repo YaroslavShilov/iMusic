@@ -6,6 +6,7 @@ import SimpleBar from "simplebar-react";
 import "simplebar/src/simplebar.css";
 
 export const Main = () => {
+  asdf;
   return (
     <MainStyle>
       <Header />
