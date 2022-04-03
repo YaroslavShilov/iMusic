@@ -6,15 +6,37 @@ import { Main } from "./common/Main";
 
 function App() {
   return (
-    <AppStyle>
+    <div>test</div>
+
+    /*<AppStyle>
       <Content>
         <Aside />
         <Main />
         <Footer />
       </Content>
-    </AppStyle>
+    </AppStyle>*/
   );
 }
+
+const Dropdown = () => {
+  const data = [
+    { value: 1, name: "A" },
+    { value: 2, name: "B" },
+    { value: 3, name: "C" },
+  ];
+
+  return (
+    <div>
+      <select>
+        {data.map((item, index) => (
+          <option key={index} value={item.value}>
+            {item.name}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
 
 const AppStyle = styled.div`
   min-height: 100vh;
